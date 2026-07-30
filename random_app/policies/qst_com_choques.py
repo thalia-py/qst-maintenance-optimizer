@@ -3,7 +3,6 @@
 Política QST-Choques — Manutenção Preventiva Oportuna em Três Fases,
 com a ocorrência de choques externos ao sistema.
 
-Modelo matemático original: Thalia Queiroz.
 Este módulo mantém integralmente a formulação probabilística original
 (22 cenários), reorganizando-a em funções parametrizadas por um
 dicionário de parâmetros (`p`), para reuso na otimização, avaliação
