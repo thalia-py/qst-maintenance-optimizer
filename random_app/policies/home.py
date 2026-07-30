@@ -16,7 +16,8 @@ def render():
         badge="Quem Somos",
     )
 
-    section_title("👋", "Sobre o grupo")
+    # Passamos uma string vazia no primeiro argumento para não quebrar a função section_title
+    section_title("", "Sobre o grupo")
     st.markdown(
         """
         O **RANDOM** foi criado em 2012 e reúne pesquisadores dedicados às áreas
@@ -30,7 +31,8 @@ def render():
     )
 
     st.markdown("<br>", unsafe_allow_html=True)
-    section_title("🎯", "Sobre esta ferramenta")
+    
+    section_title("", "Sobre esta ferramenta")
     st.markdown(
         """
         Este software reúne, em um único lugar, dois modelos de otimização da
@@ -48,7 +50,7 @@ def render():
         st.markdown(
             """
             <div class="feature-card">
-                <div class="feature-card-title">📘 QST — Política sem Choques</div>
+                <div class="feature-card-title">QST — Política sem Choques</div>
                 <div class="feature-card-body">
                     Modelo sem a ocorrência de choques externos. Considera
                     apenas o defeito natural do sistema, o tempo
@@ -63,11 +65,10 @@ def render():
         st.markdown(
             """
             <div class="feature-card">
-                <div class="feature-card-title">⚡ QST — Política com Choques</div>
+                <div class="feature-card-title">QST — Política com Choques</div>
                 <div class="feature-card-body">
-                    Esse modelo considera a
-                    ocorrência de choques externos ao sistema, capazes de
-                    antecipar o defeito ou a falha.
+                    Esse modelo considera a ocorrência de choques externos ao 
+                    sistema, capazes de antecipar o defeito ou a falha.
                 </div>
             </div>
             """,
@@ -75,15 +76,14 @@ def render():
         )
 
     st.markdown("<br>", unsafe_allow_html=True)
-    section_title("🧭", "Como usar")
+    
+    section_title("", "Como usar")
     st.markdown(
         """
         1. Escolha a política desejada no menu lateral (**QST — Política sem choques** ou **QST — Política com Choques**);
         2. Informe os parâmetros do modelo (distribuições, custos e tempos de parada);
-        3. Otimize a política automaticamente ou avalie o desempenho de uma
-           política definida manualmente;
-        4. Explore a análise de sensibilidade para entender o impacto da
-           imprecisão nos parâmetros sobre os resultados.
+        3. Otimize a política automaticamente ou avalie o desempenho de uma política definida manualmente;
+        4. Explore a análise de sensibilidade para entender o impacto da imprecisão nos parâmetros sobre os resultados.
         """
     )
 
