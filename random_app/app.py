@@ -33,7 +33,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-
 # =============================================================================
 # ESTILO (CSS) GLOBAL
 # =============================================================================
@@ -61,10 +60,12 @@ def load_css():
             header[data-testid="stHeader"] [data-testid="stToolbar"] {
                 visibility: hidden;
             }
-            /* Garante que o botão de reabrir a sidebar recolhida continue visível */
+            
+            /* ---------- FIXA O MENU LATERAL ---------- */
+            /* Remove a seta de fechar o menu (dentro da sidebar) e o botão de abrir (fora) */
+            [data-testid="stSidebarCollapseButton"],
             [data-testid="collapsedControl"] {
-                visibility: visible !important;
-                display: flex !important;
+                display: none !important;
             }
 
             /* ---------- Container principal ---------- */
@@ -307,7 +308,6 @@ def load_css():
         """,
         unsafe_allow_html=True,
     )
-
 
 load_css()
 
