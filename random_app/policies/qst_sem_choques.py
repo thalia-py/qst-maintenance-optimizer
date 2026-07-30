@@ -3,7 +3,6 @@
 Política QST (Base) — Manutenção Preventiva Oportuna em Três Fases,
 sem a ocorrência de choques externos.
 
-Modelo matemático original: Thalia Queiroz.
 Este módulo mantém integralmente a formulação probabilística original,
 reorganizando-a em funções parametrizadas por um dicionário de parâmetros
 (`p`), o que facilita reuso na otimização, avaliação manual e análise
