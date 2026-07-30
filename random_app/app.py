@@ -10,7 +10,7 @@ do modelo desenvolvido pelo grupo RANDOM:
 
 O usuário escolhe a política desejada pelo menu lateral.
 
-@author: Thalia Queiroz (modelo original) — reestruturação de interface.
+@author: Thalia Queiroz.
 """
 
 from pathlib import Path
@@ -18,16 +18,20 @@ from pathlib import Path
 import streamlit as st
 
 # =============================================================================
+# CAMINHOS DE ARQUIVOS 
+# =============================================================================
+BASE_DIR = Path(__file__).resolve().parent
+LOGO_PATH = BASE_DIR / "assets" / "logo_random.png"
+
+# =============================================================================
 # CONFIGURAÇÃO GERAL DA PÁGINA
 # =============================================================================
 st.set_page_config(
     page_title="RANDOM | Otimizador de Políticas QST",
-    page_icon="🛠️",
+    page_icon=str(LOGO_PATH) if LOGO_PATH.exists() else "🛠️",
     layout="wide",
     initial_sidebar_state="expanded",
 )
-
-LOGO_PATH = "assets/logo_random.png"
 
 
 # =============================================================================
@@ -51,7 +55,17 @@ def load_css():
             /* ---------- Esconde elementos padrão do Streamlit ---------- */
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
-            header {visibility: hidden;}
+            header[data-testid="stHeader"] {
+                background: transparent;
+            }
+            header[data-testid="stHeader"] [data-testid="stToolbar"] {
+                visibility: hidden;
+            }
+            /* Garante que o botão de reabrir a sidebar recolhida continue visível */
+            [data-testid="collapsedControl"] {
+                visibility: visible !important;
+                display: flex !important;
+            }
 
             /* ---------- Container principal ---------- */
             .block-container {
@@ -301,8 +315,8 @@ load_css()
 # MENU LATERAL — SELEÇÃO DA POLÍTICA
 # =============================================================================
 with st.sidebar:
-    if Path(LOGO_PATH).exists():
-        st.image(LOGO_PATH, use_container_width=True)
+    if LOGO_PATH.exists():
+        st.image(str(LOGO_PATH), use_container_width=True)
 
     st.markdown(
         "<div class='sidebar-title'>Otimizador de Políticas<br>de Manutenção</div>",
