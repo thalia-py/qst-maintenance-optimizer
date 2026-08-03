@@ -181,7 +181,7 @@ def EC8(Q, S, T, p):
 
 def EL8(Q, S, T, p):
     integral, _ = dblquad(
-        lambda w, x: (x + w + p["Dp"]) * fx(x, p) * fw(w, p) * Rh(Q + w - x, p),
+        lambda w, x: (Q + w + p["Dp"]) * fx(x, p) * fw(w, p) * Rh(Q + w - x, p),
         0, Q, lambda x: 0, lambda x: T - Q,
     )
     return integral
